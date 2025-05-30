@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon_io/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon_io/android-chrome-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon_io/android-chrome-512x512.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon_io//favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    
+  
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Gotu&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Responsive Navbar & Footer</title>
+    <!-- <link rel="stylesheet" href="hfooter.css"> -->
+    <!-- <link rel="stylesheet" href="animaton.css"> -->
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- Background Animation... -->
+    <div class="animated-background">
+        <div class="sphere"></div>
+        <div class="sphere"></div>
+        <div class="sphere"></div>
+        <div class="sphere"></div>
+        <div class="sphere"></div>
+        <div class="sphere"></div>
+        <div class="sphere"></div>
+        <div class="sphere"></div>
+    </div>
+    <nav class="navbar">
+        <div class="logo-container" href="#">
+            <img src="assets/logo.png" alt="Logo" class="logo">
+        </div>
+        <!-- <h2 class="logo" src="../New folder (2)/assets/2.png">MyWebsite</h2> -->
+        <ul class="nav-links">
+            <li><a href="index.html" onclick="loadPage('home')">Home</a></li>
+            <li><a href="./pages/about.html" onclick="loadPage('pages/about.html')">About</a></li>
+            <li><a href="./pages/skill.html" onclick="loadPage('pages/skills.html')">Skills</a></li>
+            <li><a href="./pages/project.html" onclick="loadPage('pages/project.html')">Projects</a></li>
+            <li><a href="./pages/contact.html" onclick="loadPage('pages/contact.html')">Contact</a></li>
+        </ul>
+        <button class="toggle-btn" onclick="toggleMenu()">☰</button>
+       
+    </nav>
+
+<!-- Abb  changes v kariha ee files me ta 
+ sirf git push -u origin main kardiha changes hojaee github me ok -->
+
+
+    <div class="menu-overlay" id="menuOverlay">
+        <button class="close-btn" onclick="toggleMenu()">✖</button>
+        <ul class="menu">
+            <li><a href="index.html" onclick="loadPage('home')">Home</a></li>
+            <li><a href="./pages/about.html" onclick="loadPage('pages/about.html')">About</a></li>
+            <li><a href="./pages/skill.html" onclick="loadPage('pages/skills.html')">Skills</a></li>
+            <li><a href="./pages/project.html" onclick="loadPage('pages/project.html')">Projects</a></li>
+            <li><a href="./pages/contact.html" onclick="loadPage('pages/contact.html')">Contact</a></li>
+        </ul>
+    </div>
+    <!--  Home pages details -->
+    <div class="content-wrapper">
+        <div class="main-container">
+            <!-- Left Side: Text Content -->
+            <div class="text-content">
+                <h1>
+                    <span class="nepali-text" data-text="संजित कुमार शर्मा">संजित कुमार शर्मा</span>
+                    <span class="english-text" data-text="Sanjit kumar sharma">Sanjit Kumar sharma</span>
+                </h1>
+                <h2>I'm
+                    <span class="animated-role" data-text="App Developer">App Developer</span>
+                    <span class="animated-role" data-text="YouTuber">YouTuber</span>
+                    <span class="animated-role" data-text="Ethical Hacker">Ethical Hacker</span>
+                </h2>
+                <p>
+                    Passionate tech writer with a keen interest in technology and innovation.
+                    I enjoy creating clear and concise documentation that helps users understand and utilize technology
+                    effectively.
+                    With a background in software development, I have honed my skills in app development, ethical
+                    hacking, and content creation.
+                    I am always eager to learn new things and share my knowledge with others.
+                </p>
+                <div class="btn-soc">
+                    <div class="soc">
+                        <a href="https://www.facebook.com/SanjitKumar.Sharma.7568" target="_blank"><i class="fab fa-facebook-f"></i> 
+                        <a href="https://github.com/sanjitsharma544" target="_blank"><i class="bx bxl-github"></i></a>
+                        <a href="https://linkedin.com/in/Sanjit kumarr sharma" target="_blank"><i class="bx bxl-linkedin"></i></a>
+                        <a href="https://youtube.com/@sanjitsharma6405" target="_blank"><i class="bx bxl-youtube"></i></a>
+                    </div>
+                    <div class="btn">
+                        <a href="../assets/Sanjit Kumar Sharma.pdf" download>Download Resume
+                            <i class="fa-solid fa-download"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Right Side: Image Content -->
+            <div class="image-content">
+                <div class="hom-img">
+                    <div class="img-item">
+                        <img src="assets/1.png" alt="myimage">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="social-media">
+            <a href="https://www.facebook.com/SanjitKumar.Sharma.7568" target="_blank"><i class="fab fa-facebook-f"></i> 
+            <a href="https://www.github.com/sanjitsharma544" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/sanjitsharma6405" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.youtube.com/@sanjitsharma6405" target="_blank"><i class="fab fa-youtube"></i></a>
+        </div>
+        <p>&copy; <span id="year"></span> Sanjit kumar sharma | Designed with <span style="color: #f2023a;">&#10084;</span>
+        </p>
+    </footer>
+    <script>
+        function toggleMenu() {
+            const menuOverlay = document.getElementById("menuOverlay");
+            const contentWrapper = document.querySelector('.content-wrapper');
+            document.body.classList.toggle('menu-open');
+            menuOverlay.classList.toggle("active");
+        }
+
+        // Update Footer Year
+        const currentYear = new Date().getFullYear();
+        document.getElementById("year").textContent = currentYear;
+        const nameElement = document.getElementById('name');
+        const roleElement = document.getElementById('role');
+
+        const names = ['संजित कुमार शर्मा ', 'Sanjit Kumar sharma'];
+        const roles = ['App Developer', 'YouTuber', 'Ethical Hacker'];
+
+        let nameIndex = 0;
+        let roleIndex = 0;
+
+        function updateText() {
+            nameElement.textContent = names[nameIndex];
+            roleElement.textContent = roles[roleIndex];
+
+            nameIndex = (nameIndex + 1) % names.length;
+            roleIndex = (roleIndex + 1) % roles.length;
+        }
+        setInterval(updateText, 3000); // Change text every 3 seconds
+
+    </script>
+</body>
+
+</html>

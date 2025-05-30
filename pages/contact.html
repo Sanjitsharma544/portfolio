@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon_io/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon_io/android-chrome-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon_io/android-chrome-512x512.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon_io//favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Gotu&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Responsive Navbar & Footer</title>
+
+    <!-- <link rel="stylesheet" href="contact.css"> -->
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Gotu&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Gotu', sans-serif, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            height: 100%;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Hide scrollbar for WebKit browsers */
+        body::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* animation  */
+        .animated-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .sphere {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: rgba(248, 99, 99, 0.1);
+            /* background: rgba(224, 108, 108, 0.1); */
+            border-radius: 50%;
+            animation: move 20s linear infinite;
+        }
+
+        .sphere:nth-child(1) {
+            top: 20%;
+            left: 25%;
+            animation-duration: 15s;
+            animation-delay: -5s;
+        }
+
+        .sphere:nth-child(2) {
+            top: 50%;
+            left: 25%;
+            animation-duration: 20s;
+            animation-delay: -10s;
+        }
+
+        .sphere:nth-child(3) {
+            top: 70%;
+            left: 75%;
+            bottom: 2%;
+            direction: x;
+            animation-duration: 25s;
+            animation-delay: -15s;
+        }
+
+        .sphere:nth-child(4) {
+            top: 30%;
+            left: 45%;
+            animation-duration: 18s;
+            animation-delay: -20s;
+        }
+
+        .sphere:nth-child(5) {
+            top: 80%;
+            left: 45%;
+            animation-duration: 22s;
+            animation-delay: -25s;
+        }
+
+        .sphere:nth-child(6) {
+            top: 35%;
+            left: 55%;
+            bottom: 35%;
+            animation-duration: 22s;
+            animation-delay: -30s;
+        }
+
+        .sphere:nth-child(7) {
+            top: 35%;
+            left: 35%;
+            animation-duration: 22s;
+            animation-delay: -35s;
+        }
+
+        .sphere:nth-child(8) {
+            top: 60%;
+            left: 48%;
+            bottom: 20%;
+            animation-duration: 22s;
+            animation-delay: -40s;
+        }
+
+
+        @keyframes move {
+            0% {
+                transform: translateY(0) translateX(0);
+            }
+
+            50% {
+                transform: translateY(-100px) translateX(100px);
+            }
+
+            100% {
+                transform: translateY(0) translateX(0);
+            }
+        }
+
+        .navbar {
+            margin-top: -50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: transparent;
+            background: transparent;
+            /* background: #f4f4f4; */
+            color: rgb(0, 0, 0);
+        }
+
+       
+
+    /* Logo Styling */
+.logo-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.logo {
+    height: 190px;
+    width: auto;
+}
+/* .logo {
+    font-size: 24px;
+    font-weight: bold;
+} */
+
+         .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: rgb(0, 0, 0);
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        .nav-links li a:hover {
+            color: #fe6807;
+        }
+
+
+
+        /* Hide Toggle Button & Menu in Desktop */
+        .toggle-btn,
+        .menu-overlay {
+            justify-content: center;
+            text-align: center;
+            display: none;
+        }
+
+
+        /* Contact pages CSS code */
+        .content {
+            flex: 1;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            flex-direction: column-reverse;
+            align-items: center;
+            /* background: #1f242d; */
+            /* background: transparent; */
+            /* background-color: transparent; */
+            padding-top: 80px;
+            /* To avoid content being hidden under the header */
+            padding-bottom: 60px;
+            /* To avoid content being hidden under the footer */
+        }
+
+        .container {
+            width: 100%;
+            height: 35%;
+            max-width: 950px;
+            padding: 30px 20px;
+            display: flex;
+            gap: 15px;
+            margin-top: 20%;
+            /* margin-right: 85%; */
+            /* margin-left: -95%; */
+            /* background-color: #333; */
+            border-radius: 15px;
+            /* background: transparent; */
+            /* background-color: transparent; */
+            /* box-shadow: 0 8px 20px rgba(#1f242d, 0.2); */
+            /* box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); */
+            position: absolute;
+            height: 560px;
+        }
+
+        .verticalLine {
+            width: 3px;
+            background-color: #fe6807;
+            height: 60%;
+            position: absolute;
+            left: 42.5%;
+            top: 80px;
+            transform: translateX(-50%);
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            width: 100%;
+            /* top: 300px; */
+        }
+
+        .row .contactInfo {
+            margin-left: 20px;
+            margin-top: 100px;
+
+
+        }
+
+        section {
+            flex: 1;
+        }
+
+        .col {
+            margin-left: -5px;
+        }
+
+        .col section {
+            background-color: transparent;
+            background: transparent;
+        }
+
+        .contactTitle {
+            margin-left: -40px;
+        }
+
+        .contactTitle h2 {
+            font-size: 18px;
+            color: #fe6807;
+            margin-bottom: 2px;
+        }
+
+        .contactTitle p {
+            /* margin: left 100px; */
+            font-size: 13px;
+            color: #000000;
+            line-height: 1.6;
+        }
+
+        /* .contactInfo,
+.socialMedia {
+    margin-top: 10px;
+} */
+
+        .iconGroup {
+            display: flex;
+            align-items: center;
+            margin-bottom: 13px;
+        }
+
+        .icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            /* background-color: #ffa500; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: -50px;
+            /* margin-right: 15px; */
+            transition: transform 0.3s;
+        }
+
+        .icon i {
+            height: 50px;
+            width: 50px;
+            font-size: 25px;
+            color: rgb(0, 0, 0);
+            /* background: transparent; */
+        }
+
+        .iconGroup:hover .icon {
+            transform: scale(1.1);
+        }
+
+        .iconGroup:hover .details span {
+            color: none;
+        }
+
+        .details span {
+            margin-left: 5px;
+            display: block;
+            font-size: 14px;
+            color: rgb(0, 0, 0);
+        }
+
+        .details span:first-child {
+            font-weight: bold;
+            color: #fe6807;
+        }
+
+        /* .socialMedia a {
+        width: 80px;
+        height: 80px;
+        text-decoration: none;
+        text-align: center;
+        margin-right: 2px;
+        border-radius: 10px;
+        /* background-color: #ffc61a; 
+        transition: 0.2s;
+        margin-top: 110px;
+        margin-left: 40px;
+    }
+
+    .socialMedia a i {
+        margin-top: 8px;
+        width: 60px;
+        height: 60px;
+        color: #ddd;
+        font-size: 18px;
+        /* line-height: 35px; 
+        border: 5px solid transparent;
+        transition-delay: 0.2s;
+    }
+
+    .socialMedia a:hover {
+        transform: translateY(-12px);
+        background-color: #1f242d;
+        color: #42413c98;
+        border: 1px solid #ffa500;
+    }
+
+    .socialMedia a:hover i {
+        color: #ffa500;
+    } */
+
+        /* Code for the right section (column) */
+
+        .row section.right .messageForm {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding-top: 0px;
+        }
+
+        .row section.right .inputGroup {
+            margin: 7px 0px;
+            position: relative;
+        }
+
+        /* Centering the form */
+        .messageForm {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            background: transparent;
+            background-color: transparent;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.5s ease-in;
+            margin-top: -4px;
+
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .inputGroup {
+            position: relative;
+            flex: 1 1 calc(50% - 20px);
+            margin: 8px 0;
+        }
+
+        .inputGroup.fullWidth {
+            flex: 1 1 100%;
+
+        }
+
+        .inputGroup input,
+        .inputGroup textarea {
+            width: 100%;
+            font-size: 14px;
+            padding: 10px 15px;
+            /* #555 */
+            border: 2px solid #cecece;
+            /* border: 2px solid #fff;    */
+            border-radius: 8px;
+            background-color: #2d344094;
+            /* background-color:#dee0e26f ; */
+            /* background-color: #222; */
+            color: #fff;
+            outline: none;
+            border-color: transparent;
+            transition: 0.3s;
+        }
+
+        /* .inputGroup input:focus,
+    .inputGroup textarea:focus {
+        border-color: #ffda79;
+    } */
+        .inputGroup label {
+            position: absolute;
+            top: 10px;
+            left: 15px;
+            font-size: 14px;
+            background: transparent;
+            color: #ededed;
+            pointer-events: none;
+            transition: transform 0.3s, font-size 0.3s;
+        }
+
+        .inputGroup input:focus~label,
+        .inputGroup textarea:focus~label,
+        .inputGroup input:not(:placeholder-shown)~label,
+        .inputGroup textarea:not(:placeholder-shown)~label {
+            transform: translateY(-28.5px);
+            font-size: 13px;
+            color: #fe6807;
+        }
+
+        .inputGroup textarea {
+            resize: none;
+            height: 120px;
+        }
+
+        textarea::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        textarea::-webkit-scrollbar-track {
+            background-color: #1f242d;
+            border-radius: 15px;
+        }
+
+        textarea::-webkit-scrollbar-thumb {
+            background-color: #fe6807;
+            border-radius: 15px;
+        }
+
+        button {
+            display: inline;
+            background: transparent;
+            background-color: #fe6807;
+            border: 3px solid #fe6807;
+            color: #000000;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 40px;
+            cursor: pointer;
+            margin-bottom: 27px;
+            box-shadow: 0 0 10px rgba(#fe6807 0.3);
+            border: 2px solid #fe6807;
+        }
+
+        button:hover {
+            background-color: transparent;
+            border-color: #fe6807;
+            color: rgb(0, 0, 0);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin-top: 120%;
+                flex-direction: column;
+                height: 100%;
+                padding: 20px;
+            }
+
+            .verticalLine {
+                display: none;
+            }
+
+            .row {
+                flex-direction: column-reverse;
+            }
+
+            .row .contactInfo {
+                font-size: 11px;
+                margin-bottom: 5px;
+                margin-left: 0;
+                margin-top: 10px;
+            }
+
+            .contactTitle {
+                margin-top: 25px;
+            }
+
+            .contactTitle h2 {
+                font-size: 16px;
+                margin-top: 0;
+                margin-left: 45px;
+
+            }
+
+            .contactTitle p {
+                font-size: 12px;
+                margin-left: 45px;
+            }
+
+            .row section {
+                margin-top: 10px;
+            }
+
+            .messageForm {
+                margin-right: 15px;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .row section.right .messageForm {
+                margin-left: -5px;
+                padding-top: 0;
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            .inputGroup {
+
+                flex: 1 1 100%;
+            }
+
+            .inputGroup.fullWidth {
+                flex: 1 1 100%;
+            }
+
+            .inputGroup input,
+            .inputGroup textarea {
+                width: 100%;
+            }
+
+            .inputGroup input,
+            .inputGroup textarea {
+                padding: 10px 10px;
+            }
+
+            button {
+                width: 100%;
+            }
+
+            .icon {
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                margin-left: 7px;
+                transition: transform 0.3s;
+            }
+
+            .icon i {
+
+                height: 50px;
+                width: 50px;
+                font-size: 15px;
+                color: rgb(0, 0, 0);
+                /* background: transparent; */
+            }
+
+            .details {
+                font-size: 13px;
+            }
+
+            .details span {
+                display: block;
+                font-size: 14px;
+            }
+        }
+
+
+        .footer {
+            /* background: #e94b4b; */
+            color: rgb(0, 0, 0);
+            text-align: center;
+            padding: 15px 0;
+            margin-top: -150px;
+        }
+
+        .footer p {
+            text-align: center;
+            margin-bottom: -140px;
+            margin-top: 150px;
+        }
+
+        .social-media {
+            margin-top: 500px;
+            /* margin-bottom: -2px; */
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            margin-bottom: -130px;
+            /* Adjust as needed */
+        }
+
+        .social-media a {
+            margin: 0 10px;
+            color: #fe6807;
+            font-size: 20px;
+            text-decoration: none;
+            transition: color 0.3s;
+            transform: translateY(50%);
+            transition: transform 0.3s ease;
+        }
+
+        .social-media a:hover {
+            /* color: #ffcc00; */
+            transform: scale(1.1);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .toggle-btn {
+                margin-right: -90px;
+                display: block;
+                font-size: 24px;
+                background: none;
+                border: none;
+                color: rgb(0, 0, 0);
+                cursor: pointer;
+            }
+
+            .menu-overlay {
+                display: flex;
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 100%;
+                height: 100vh;
+                /* background: transparent; */
+                background: rgba(0, 0, 0, 0.9);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: right 0.5s ease-in-out;
+                z-index: 1000;
+            }
+
+            body.menu-open .content-wrapper {
+                display: none;
+            }
+
+            body.menu-open {
+                overflow: hidden;
+            }
+
+            .menu-overlay.active {
+                right: 0;
+                display: flex;
+                background-color: black;
+            }
+
+            .close-btn {
+                position: absolute;
+                top: 15px;
+                right: 35px;
+                font-size: 30px;
+                background: black;
+                border: none;
+                color: rgb(255, 255, 255);
+                cursor: pointer;
+            }
+
+            .menu {
+                list-style: none;
+                text-align: center;
+            }
+
+            .menu li {
+                margin: 20px 0;
+            }
+
+            .menu li a {
+                font-size: 24px;
+                color: white;
+                text-decoration: none;
+                transition: color 0.3s;
+            }
+
+            .menu li a:hover {
+                color: #fe6807;
+            }
+
+            .footer {
+                text-align: center;
+                /* margin-bottom: -65px;*/
+                text-align: center;
+                justify-content: center;
+                margin-top: 30px;
+            }
+
+            .footer p {
+                /* margin-left: 50px; */
+                margin-top: 150px;
+            }
+
+            .social-media a {
+                margin-top: 155px;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Background Animation... -->
+    <div class="animated-background">
+        <div class="sphere"></div>
+        <div class="sphere"></div>
+        <div class="sphere"></div>
+        <div class="sphere"></div>
+        <div class="sphere"></div>
+        <div class="sphere"></div>
+        <div class="sphere"></div>
+        <div class="sphere"></div>
+    </div>
+    <nav class="navbar">
+        <div class="logo-container" href="#">
+            <img src="../assets/logo.png" alt="Logo" class="logo">
+        </div>
+        <!-- <h2 class="logo" src="../New folder (2)/assets/2.png">MyWebsite</h2> -->
+        <ul class="nav-links">
+            <li><a href="../index.html" onclick="loadPage('home')">Home</a></li>
+            <li><a href="../pages/about.html" onclick="loadPage('pages/about.html')">About</a></li>
+            <li><a href="../pages/skill.html" onclick="loadPage('pages/skills.html')">Skills</a></li>
+            <li><a href="../pages/project.html" onclick="loadPage('pages/project.html')">Projects</a></li>
+            <li><a href="../pages/contact.html" onclick="loadPage('pages/contact.html')">Contact</a></li>
+        </ul>
+        <button class="toggle-btn" onclick="toggleMenu()">☰</button>
+    </nav>
+
+    <div class="menu-overlay" id="menuOverlay">
+        <button class="close-btn" onclick="toggleMenu()">✖</button>
+        <ul class="menu">
+            <li><a href="../index.html" onclick="loadPage('home')">Home</a></li>
+            <li><a href="../pages/about/index.html" onclick="loadPage('pages/about.html')">About</a></li>
+            <li><a href="../pages/skill.html" onclick="loadPage('pages/skills.html')">Skills</a></li>
+            <li><a href="../pages/project.html" onclick="loadPage('pages/project.html')">Projects</a></li>
+            <li><a href="../pages/contact.html" onclick="loadPage('pages/contact.html')">Contact</a></li>
+        </ul>
+    </div>
+    <!-- Home pages details -->
+    <div class="content-wrapper">
+        <!-- Main content here -->
+        <div class="content" id="main-content">
+            <div class="container">
+                <div class="verticalLine"></div>
+                <main class="row">
+                    <section class="col left">
+                        <div class="contactInfo">
+                            <div class="iconGroup">
+                                <div class="icon">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div class="details">
+                                    <span class="location">Location</span>
+                                    <span>44300 Chitragupt Nagar Birgunj, Parsa Nepal</span>
+                                </div>
+                            </div>
+                            <div class="iconGroup">
+                                <div class="icon">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div class="details">
+                                    <span>Email</span>
+                                    <span>contact:sanjitsharma5440s@gmail.com</span>
+                                </div>
+                            </div>
+                            <div class="iconGroup">
+                                <div class="icon">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div class="details">
+                                    <span>Phone</span>
+                                    <span>+977 9866118367</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="col right">
+                        <div class="contactTitle">
+                            <h2>Contact Me</h2>
+                            <p>If you have any questions, project ideas, or just want to say hello, feel free to drop a
+                                message!
+                            </p>
+                        </div><br>
+                        <form id="contactForm" class="messageForm">
+                            <div class="inputGroup halfWidth">
+                                <input type="text" id="name" placeholder=" " required>
+                                <label>Enter Your Name *</label>
+                            </div>
+                            <div class="inputGroup halfWidth">
+                                <input type="tel" id="phone" placeholder=" ">
+                                <label>Enter Your Phone</label>
+                            </div>
+                            <div class="inputGroup halfWidth">
+                                <input type="email" id="email" placeholder=" " required>
+                                <label>Enter Your Email *</label>
+                            </div>
+                            <div class="inputGroup fullWidth">
+                                <textarea id="message" placeholder=" " required></textarea>
+                                <label>Enter Your Message *</label>
+                            </div>
+                            <div class="inputGroup fullWidth">
+                                <button type="submit" id="submit">Send Message</button>
+                            </div>
+                        </form>
+                    </section>
+                </main>
+            </div>
+        </div>
+    </div>            
+
+ 
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="social-media">
+            <a href="https://www.facebook.com/SanjitKumar.Sharma.7568" target="_blank"><i class="fab fa-facebook-f"></i> 
+            <a href="https://www.github.com/sanjitsharma544" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/sanjitkumar.sharma" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.youtube.com/@sanjitsharma6405" target="_blank"><i class="fab fa-youtube"></i></a>
+        </div>
+        <p>&copy; <span id="year"></span> Sanjit Kumar Sharma | Designed with <span style="color: #f2023a;">&#10084;</span>
+        </p>
+    </footer>
+    <script src="../script.js" type="module">
+        function toggleMenu() {
+            const menuOverlay = document.getElementById("menuOverlay");
+            const contentWrapper = document.querySelector('.content-wrapper');
+            document.body.classList.toggle('menu-open');
+            menuOverlay.classList.toggle("active");
+        }
+
+        // Update Footer Year
+        const currentYear = new Date().getFullYear();
+        document.getElementById("year").textContent = currentYear;
+
+
+    </script>
+</body>
+
+</html>

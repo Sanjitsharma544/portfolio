@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon_io/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon_io/android-chrome-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon_io/android-chrome-512x512.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon_io//favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Gotu&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+     rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Responsive Navbar & Footer</title>
+  
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Gotu&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gotu', sans-serif, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* animation  */
+.animated-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.sphere {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: rgba(248, 99, 99, 0.1);
+    /* background: rgba(224, 108, 108, 0.1); */
+    border-radius: 50%;
+    animation: move 20s linear infinite;
+}
+
+.sphere:nth-child(1) {
+    top: 20%;
+    left: 25%;
+    animation-duration: 15s;
+    animation-delay: -5s;
+}
+
+.sphere:nth-child(2) {
+    top: 50%;
+    left: 25%;
+    animation-duration: 20s;
+    animation-delay: -10s;
+}
+
+.sphere:nth-child(3) {
+    top: 70%;
+    left: 75%;
+    bottom: 2%;
+    direction: x;
+    animation-duration: 25s;
+    animation-delay: -15s;
+}
+
+.sphere:nth-child(4) {
+    top: 30%;
+    left: 45%;
+    animation-duration: 18s;
+    animation-delay: -20s;
+}
+
+.sphere:nth-child(5) {
+    top: 80%;
+    left: 45%;
+    animation-duration: 22s;
+    animation-delay: -25s;
+}
+
+.sphere:nth-child(6) {
+    top: 35%;
+    left: 55%;
+    bottom: 35%;
+    animation-duration: 22s;
+    animation-delay: -30s;
+}
+
+.sphere:nth-child(7) {
+    top: 35%;
+    left: 35%;
+    animation-duration: 22s;
+    animation-delay: -35s;
+}
+
+.sphere:nth-child(8) {
+    top: 60%;
+    left: 48%;
+    bottom: 20%;
+    animation-duration: 22s;
+    animation-delay: -40s;
+}
+
+
+@keyframes move {
+    0% {
+        transform: translateY(0) translateX(0);
+    }
+
+    50% {
+        transform: translateY(-100px) translateX(100px);
+    }
+
+    100% {
+        transform: translateY(0) translateX(0);
+    }
+}
+
+.navbar {
+    margin-top: -50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: transparent;
+    background: transparent;
+    /* background: #f4f4f4; */
+    color: rgb(0, 0, 0);
+}
+/* Logo Styling */
+.logo-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.logo {
+    height: 190px;
+    width: auto;
+}
+/* .logo {
+    font-size: 24px;
+    font-weight: bold;
+} */
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+    color: #fe6807;
+}
+
+.main-container {
+    margin-top: -85px;
+    max-width: 1200px;
+    margin: 10px auto;
+    padding: 5px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+/* Left Section - Stats */
+.stats-section {
+    margin-top: 90px;
+    flex-direction: column-reverse;
+    /* background: white; */
+    border-radius: 10px;
+    padding: 10px;
+    /* box-shadow: 0 5px 15px rgba(0,0,0,0.1); */
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.stat-card {
+    text-align: center;
+    padding: 15px;
+    border-radius: 10px;
+    /* background: #3498db3a; */
+    color: rgb(0, 0, 0);
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-number {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin: 6px 0;
+}
+/* Right Section - Qualifications */
+.qualifications-section {
+    /* background: #2c3e50; */
+    border-radius: 15px;
+    padding: 40px;
+    color: rgb(0, 0, 0);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+/* Qualification Toggle Buttons (Conflict Resolved) */
+.qual-toggle-btn {
+background: #fe6807;
+border: none;
+padding: 12px 25px;
+color: white;
+border-radius: 30px;
+cursor: pointer;
+transition: all 0.3s ease;
+display: flex;
+align-items: center;
+gap: 8px;
+margin-right: 2px; /* Add margin to the right */
+}
+.qual-toggle-btn.active {
+background: #fe6807;
+transform: scale(1.05);
+}
+
+.toggle-buttons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.toggle-btn {
+    background: #fe6807;
+    border: none;
+    padding: 12px 25px;
+    color: white;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    display: none;
+}
+
+.toggle-btn.active {
+    background: #fe6807;
+    transform: scale(1.05);
+}
+
+.content-section {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.content-section.active {
+    display: block;
+}
+
+.qualification-item {
+    
+    background: rgba(255,255,255,0.1);
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+    box-shadow: #fe6807;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.qualification-item h3 {
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+.qualification-item p {
+    font-size: 0.7rem;
+    color: #000000;
+    margin-left: 10px;
+}
+.qualification-item a{
+    text-decoration: none;
+    color: #000000;
+}
+/* .prgs{
+    font-size: 1.3rem;
+    color: #000000;
+    margin-left: 30px;
+    margin-top: 5px;
+} */
+.prgs:hover {
+    border-radius: 5px;
+    font-size: .8rem;
+    color: #fe6807;
+    transform: translateX(12px);
+}
+.qualification-item:hover {
+    border-radius: 5px;
+    /* color: #ffa500; */
+    transform: translateX(10px);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .main-container {
+        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
+    }
+/* Left Section - Stats */
+.stats-section {
+    order: 1; /* Make stats-section appear first */
+}
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    .content-container {
+        flex-direction: column; /* Stack sections vertically on smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .qual-toggle-btn {
+width: 100%;
+justify-content: center;
+}
+.navbar .toggles-btn {
+display: block;
+}
+
+.nav-links {
+display: none;
+}
+    .toggle-btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+}
+
+
+
+
+
+
+/* Hide Toggle Button & Menu in Desktop */
+.toggle-btn,
+.menu-overlay {
+    display: none;
+}
+
+Footer
+.footer {
+    /* background: #e94b4b; */
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 15px 0;
+    margin-top: -50px;
+}
+
+.footer p {
+    text-align: center;
+    margin-bottom: -130px;
+    margin-top: 150px;
+}
+.social-media{
+    margin-top: 50px;
+    /* margin-bottom: -2px; */
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: -130px;
+    /* Adjust as needed */
+}
+.social-media a {
+    margin: 0 10px;
+    color: #fe6807;
+    font-size: 20px;
+    text-decoration: none;
+    transition: color 0.3s;
+    transform: translateY(50%);
+    transition: transform 0.3s ease;
+}
+.social-media a:hover {
+    /* color: #ffcc00; */
+    transform: scale(1.1);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .toggle-btn {
+        display: block;
+        font-size: 24px;
+        background: none;
+        border: none;
+        color: rgb(0, 0, 0);
+        cursor: pointer;
+    }
+
+    .menu-overlay {
+        display: flex;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        /* background: transparent; */
+        background: rgba(0, 0, 0, 0.9);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: right 0.5s ease-in-out;
+        z-index: 1000;
+    }
+    body.menu-open .content-wrapper {
+        display: none;
+    }
+    body.menu-open {
+        overflow: hidden;
+    }
+    
+    .menu-overlay.active {
+        right: 0;
+        display: flex;
+        background-color: black;
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 15px;
+        right: 35px;
+        font-size: 30px;
+        background: black;
+        border: none;
+        color: rgb(255, 255, 255);
+        cursor: pointer;
+    }
+
+    .menu {
+        list-style: none;
+        text-align: center;
+    }
+
+    .menu li {
+        margin: 20px 0;
+    }
+
+    .menu li a {
+        font-size: 24px;
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    .menu li a:hover {
+        color: #fe6807;
+    }
+    /* .footer {
+        margin-bottom: -65px;
+        margin-top: 0px;
+    }
+    .footer p {
+        margin-left: 10px;
+        margin-top: 20px;
+    }
+    .social-media a{
+        margin-top: 150px;
+    } */
+    
+}
+
+    </style>
+</head>
+
+<body>
+    <!-- Background Animation... -->
+    <div class="animated-background">
+        <div class="sphere"></div>
+        <div class="sphere"></div>
+        <div class="sphere"></div>
+        <div class="sphere"></div>
+        <div class="sphere"></div>
+        <div class="sphere"></div>
+        <div class="sphere"></div>
+        <div class="sphere"></div>
+    </div>
+    <nav class="navbar">
+        <div class="logo-container" href="#">
+            <img src="../assets/logo.png" alt="Logo" class="logo" >
+        </div>
+        <!-- <h2 class="logo" src="../New folder (2)/assets/2.png">MyWebsite</h2> -->
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../pages/about.html">About</a></li>
+            <li><a href="../pages/skill.html">Skills</a></li>
+            <li><a href="../pages/project.html">Projects</a></li>
+            <li><a href="../#">Contact</a></li>
+        </ul>
+        <button class="toggle-btn" onclick="toggleMenu()">☰</button>
+    </nav>
+
+    <div class="menu-overlay" id="menuOverlay">
+        <button class="close-btn" onclick="toggleMenu()">✖</button>
+        <ul class="menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="../pages/about.html">About</a></li>
+            <li><a href="../pages/skill.html">Skills</a></li>
+            <li><a href="../pages/project.html">Projects</a></li>
+            <li><a href="../pages/">Contact</a></li>
+        </ul>
+    </div>
+     <!--  Home pages details -->
+     <div class="content-wrapper">
+        <div class="main-container">
+            <!-- Left Section - Dynamic Stats -->
+            <section class="stats-section">
+                <!-- <h1>Professional Stats</h1> -->
+                <div class="stats-grid" data-stats-container>
+                    <!-- Add/Remove stats by copying this item -->
+                    <div class="stat-card" data-stat="projects">
+                        <i class="fas fa-code fa-2x"></i>
+                        <div class="stat-number">1+</div>
+                        <p>Projects Completed</p>
+                    </div>
+                    <div class="stat-card" data-stat="experience">
+                        <i class="fas fa-calendar-alt fa-2x"></i>
+                        <div class="stat-number">0</div>
+                        <p>Years Experience</p>
+                    </div>
+                    <!-- <div class="stat-card" data-stat="clients">
+                        <i class="fas fa-users fa-2x"></i>
+                        <div class="stat-number">0</div>
+                        <p>Happy Clients</p>
+                    </div> -->
+                    <!-- <div class="stat-card" data-stat="awards">
+                        <i class="fas fa-award fa-2x"></i>
+                        <div class="stat-number">0</div>
+                        <p>Awards Won</p>
+                    </div> -->
+                </div>
+            </section>
+    
+            <!-- Right Section - Qualifications -->
+            <section class="qualifications-section">
+                <div class="toggle-buttons" data-buttons-container>
+                    <!-- Buttons will be auto-generated -->
+                </div>
+    
+                <div data-content-container>
+                    <!-- Add qualification sections -->
+                    <div class="content-section education active">
+                        <div class="qualification-item">
+                            <h3>Bachelor's in Information Technology (BIT)</h3>
+                            <a href="https://trmc.edu.np/">  <p class="prgs">Thakuram Multiple Campus, Birgunj</p></a>
+                            <p><i class="fa-solid fa-calendar-days"></i>  2024- Present</p>
+                        </div>
+                        <div class="qualification-item">
+                            <h3>+2 TECHNICAL </h3>
+                            <a href="https://www.facebook.com/Nrishinghsecondaryschool"> <p class="prgs"> NRISINGH SECONDARY SCHOOL PIPRAMATH ,PARSA (NEB)</p></a>
+                            <p><i class="fa-solid fa-calendar-days"></i>  2020-2022</p>
+                        </div>
+                        <div class="qualification-item">
+                            <h3>Secondary Education Examination (SEE)</h3>
+                            <a href="https://www.facebook.com/Nrishinghsecondaryschoo"> <p class="prgs">NRISINGH SECONDARY SCHOOL PIPRAMATH ,PARSA</p></a>
+                            <p> <i class="fa-solid fa-calendar-days"></i>  Till 2019</p>
+                        </div>
+                    </div>
+    
+                    <div class="content-section experience">
+                        <div class="qualification-item">
+                            <h3>Senior Developer</h3>
+                            <a href="#">   <p><i class="fas fa-briefcase"></i> Tech Corp</p></a>
+                            <p><i class="fa-solid fa-calendar-days"></i>   2022-Present</p>
+                        </div>
+                    </div>
+    
+                    <!-- Add new sections like this -->
+                    <div class="content-section certifications">
+                        <div class="qualification-item">
+                            <h3>AWS Certified</h3>
+                            <a href="#">   <p><i class="fas fa-certificate"></i> Amazon Web Services</p></a>
+                            <p><i class="fa-solid fa-calendar-days"></i>  2023</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    
+    
+    </div>
+     <!-- Footer -->
+     <footer class="footer">
+        <div class="social-media">
+             <a href="https://www.facebook.com/SanjitKumar.Sharma.7568" target="_blank"><i class="fab fa-facebook-f"></i> 
+            <a href="https://www.github.com/sanjitsharma544" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/sanjitsharma6405" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.youtube.com/@sanjitsharma6405" target="_blank"><i class="fab fa-youtube"></i></a>
+        </div>
+        <p>&copy; <span id="year"></span> Sanjit Kumar Sharma | Designed with <span style="color: #f2023a;">&#10084;</span>
+        </p>
+    </footer>
+    <script>
+      function toggleMenu() {
+            const menuOverlay = document.getElementById("menuOverlay");
+            const contentWrapper = document.querySelector('.content-wrapper');
+            document.body.classList.toggle('menu-open');
+            menuOverlay.classList.toggle("active");
+        }
+
+// Update Footer Year
+const currentYear = new Date().getFullYear();
+        document.getElementById("year").textContent = currentYear;
+
+
+        // Dynamic Stats Configuration
+ const statsData = {
+    projects: "1+" ,
+    experience: "0+",
+    clients: "0+",
+    awards: "0+"
+};
+
+// Initialize Stats
+document.querySelectorAll('[data-stat]').forEach(item => {
+    const statType = item.dataset.stat;
+    item.querySelector('.stat-number').textContent = statsData[statType] || 0;
+});
+
+// Dynamic Qualifications System
+const qualificationsSystem = {
+    init() {
+        this.cacheElements();
+        this.generateButtons();
+        this.activateFirst();
+        this.addEventListeners();
+    },
+
+    cacheElements() {
+        this.buttonsContainer = document.querySelector('[data-buttons-container]');
+        this.contentContainer = document.querySelector('[data-content-container]');
+        this.sections = Array.from(this.contentContainer.children);
+    },
+
+    generateButtons() {
+        this.sections.forEach(section => {
+            const sectionName = section.classList[1];
+            const button = document.createElement('button');
+            button.className = 'qual-toggle-btn';
+            button.innerHTML = `
+                <i class="fas ${this.getIcon(sectionName)}"></i>
+                ${this.capitalize(sectionName)}
+            `;
+            button.dataset.section = sectionName;
+            this.buttonsContainer.appendChild(button);
+        });
+    },
+
+    getIcon(sectionName) {
+        const icons = {
+            education: 'fa-graduation-cap',
+            experience: 'fa-briefcase',
+            certifications: 'fa-certificate'
+        };
+        return icons[sectionName] || 'fa-folder';
+    },
+
+    capitalize(str) {
+        return str.charAt(0).toUpperCase() + str.slice(1);
+    },
+
+    activateFirst() {
+        this.buttonsContainer.children[0].classList.add('active');
+        this.sections[0].classList.add('active');
+    },
+
+    addEventListeners() {
+        this.buttonsContainer.addEventListener('click', (e) => {
+            if (e.target.tagName === 'BUTTON') {
+                const sectionName = e.target.dataset.section;
+                this.toggleSection(sectionName);
+                this.updateButtons(e.target);
+            }
+        });
+    },
+
+    toggleSection(sectionName) {
+        this.sections.forEach(section => {
+            section.classList.toggle('active', section.classList.contains(sectionName));
+        });
+    },
+
+    updateButtons(activeButton) {
+        Array.from(this.buttonsContainer.children).forEach(btn => {
+            btn.classList.remove('active');
+        });
+        activeButton.classList.add('active');
+    }
+};
+
+// Initialize the system
+document.addEventListener('DOMContentLoaded', () => {
+    qualificationsSystem.init();
+        // Set footer year
+        document.getElementById('year').textContent = new Date().getFullYear();
+    });
+
+// Add new sections simply by adding HTML elements
+// with class "content-section" and unique class name
+
+    </script>
+</body>
+
+</html>

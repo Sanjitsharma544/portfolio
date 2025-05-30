@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon_io/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon_io/android-chrome-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon_io/android-chrome-512x512.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon_io//favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Gotu&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+     rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Responsive Navbar & Footer</title>
+  
+    <!-- <link rel="stylesheet" href="project.css"> -->
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Gotu&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gotu', sans-serif, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* animation  */
+.animated-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.sphere {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: rgba(248, 99, 99, 0.1);
+    /* background: rgba(224, 108, 108, 0.1); */
+    border-radius: 50%;
+    animation: move 20s linear infinite;
+}
+
+.sphere:nth-child(1) {
+    top: 20%;
+    left: 25%;
+    animation-duration: 15s;
+    animation-delay: -5s;
+}
+
+.sphere:nth-child(2) {
+    top: 50%;
+    left: 25%;
+    animation-duration: 20s;
+    animation-delay: -10s;
+}
+
+.sphere:nth-child(3) {
+    top: 70%;
+    left: 75%;
+    bottom: 2%;
+    direction: x;
+    animation-duration: 25s;
+    animation-delay: -15s;
+}
+
+.sphere:nth-child(4) {
+    top: 30%;
+    left: 45%;
+    animation-duration: 18s;
+    animation-delay: -20s;
+}
+
+.sphere:nth-child(5) {
+    top: 80%;
+    left: 45%;
+    animation-duration: 22s;
+    animation-delay: -25s;
+}
+
+.sphere:nth-child(6) {
+    top: 35%;
+    left: 55%;
+    bottom: 35%;
+    animation-duration: 22s;
+    animation-delay: -30s;
+}
+
+.sphere:nth-child(7) {
+    top: 35%;
+    left: 35%;
+    animation-duration: 22s;
+    animation-delay: -35s;
+}
+
+.sphere:nth-child(8) {
+    top: 60%;
+    left: 48%;
+    bottom: 20%;
+    animation-duration: 22s;
+    animation-delay: -40s;
+}
+
+
+@keyframes move {
+    0% {
+        transform: translateY(0) translateX(0);
+    }
+
+    50% {
+        transform: translateY(-100px) translateX(100px);
+    }
+
+    100% {
+        transform: translateY(0) translateX(0);
+    }
+}
+
+.navbar {
+    margin-top: -50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: transparent;
+    background: transparent;
+    /* background: #f4f4f4; */
+    color: rgb(0, 0, 0);
+}
+/* Logo Styling */
+.logo-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.logo {
+    height: 190px;
+    width: auto;
+}
+/* .logo {
+    font-size: 24px;
+    font-weight: bold;
+} */
+ 
+ 
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+    color: #fe6807;
+}
+/* Projects code */
+main {
+  width: 100%;
+  max-width: 1200px;
+  padding: 1rem;
+  font-size: 12px;
+}
+
+/* #search-input {
+  margin: 1rem 0;
+  padding: 0.5rem;
+  width: 100%;
+  max-width: 300px;
+  border: 1px solid #d1d5da;
+  border-radius: 6px;
+} */
+
+#projects-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .5rem;
+}
+
+#button-section {
+  margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+  gap: .6rem;
+}
+
+.button {
+  padding: 0.5rem 1rem;
+  border: none;
+  /* border-radius: 6px; */
+  background-color: #fe6807;
+  color: white;
+  cursor: pointer;
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-size: 16px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.button:hover {
+  background-color: #fe6807;
+  transform: scale(1.05);
+}
+
+.button.active {
+  background-color: #fe6807;
+}
+/* Add these styles */
+.project-description {
+  max-height: 60px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  opacity: 0.8;
+}
+.project-card:hover .project-description {
+  max-height: 200px;
+  opacity: 1;
+}
+.language-badge {
+  display: inline-block;
+  background: #fe6807;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 15px;
+  font-size: 0.8em;
+  margin: 4px 2px;
+}
+
+.project-links {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+.project-link {
+  background: #fe6807;
+  color: white !important;
+  padding: 6px 15px;
+  border-radius: 20px;
+  text-decoration: none !important;
+  transition: all 0.3s ease;
+}
+
+.project-link:hover {
+  background: #fe6807;
+  transform: translateY(-2px);
+}
+
+.project-card {
+  /* background-color: #f6f8fa; */
+  border: 1px solid #d1d5da;
+  border-radius: 6px;
+  width: 300px;
+  padding: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+  padding: 16px;
+      margin: 16px;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.project-card h2 {
+  margin-top: 0;
+}
+
+.project-card p {
+  color: #586069;
+}
+
+.project-card a {
+  color: #fe6807;
+  text-decoration: none;
+}
+@media (max-width: 768px) {
+  #projects-container {
+    flex-direction: column;
+    align-items: center;
+    margin-left: -25px;
+  }
+  .project-card {
+      width: 100%;
+      margin: 10px 0;
+  }
+  
+  .project-links {
+      flex-direction: column;
+  }
+  
+  .project-link {
+      text-align: center;
+  }
+  .button {
+    padding: 0.5rem 1rem;
+    border: none;
+    /* border-radius: 6px; */
+    background-color: #fe6807;
+    color: white;
+    cursor: pointer;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .button:hover {
+    background-color: #fe6807;
+    transform: scale(1.05);
+  }
+  
+  .button.active {
+    background-color: #fe6807;
+  }
+}
+
+
+
+
+
+
+/* Hide Toggle Button & Menu in Desktop */
+.toggle-btn,
+.menu-overlay {
+    display: none;
+}
+
+Footer
+.footer {
+    /* background: #e94b4b; */
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 15px 0;
+    margin-top: -50px;
+}
+
+.footer p {
+    text-align: center;
+    margin-bottom: -130px;
+    margin-top: 150px;
+}
+.social-media{
+    margin-top: 50px;
+    /* margin-bottom: -2px; */
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: -130px;
+    /* Adjust as needed */
+}
+.social-media a {
+    margin: 0 10px;
+    color: #fe6807;
+    font-size: 20px;
+    text-decoration: none;
+    transition: color 0.3s;
+    transform: translateY(50%);
+    transition: transform 0.3s ease;
+}
+.social-media a:hover {
+    /* color: #ffcc00; */
+    transform: scale(1.1);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .toggle-btn {
+        display: block;
+        font-size: 24px;
+        background: none;
+        border: none;
+        color: rgb(0, 0, 0);
+        cursor: pointer;
+    }
+
+    .menu-overlay {
+        display: flex;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        /* background: transparent; */
+        background: rgba(0, 0, 0, 0.9);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: right 0.5s ease-in-out;
+        z-index: 1000;
+    }
+    body.menu-open .content-wrapper {
+        display: none;
+    }
+    body.menu-open {
+        overflow: hidden;
+    }
+    
+    .menu-overlay.active {
+        right: 0;
+        display: flex;
+        background-color: black;
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 15px;
+        right: 35px;
+        font-size: 30px;
+        background: black;
+        border: none;
+        color: rgb(255, 255, 255);
+        cursor: pointer;
+    }
+
+    .menu {
+        list-style: none;
+        text-align: center;
+    }
+
+    .menu li {
+        margin: 20px 0;
+    }
+
+    .menu li a {
+        font-size: 24px;
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    .menu li a:hover {
+        color: #fe6807;
+    }
+    /* .footer {
+        margin-bottom: -65px;
+        margin-top: 0px;
+    }
+    .footer p {
+        margin-left: 10px;
+        margin-top: 20px;
+    }
+    .social-media a{
+        margin-top: 150px;
+    } */
+    
+}
+
+    </style>
+</head>
+
+<body>
+    <!-- Background Animation... -->
+    <div class="animated-background">
+        <div class="sphere"></div>
+        <div class="sphere"></div>
+        <div class="sphere"></div>
+        <div class="sphere"></div>
+        <div class="sphere"></div>
+        <div class="sphere"></div>
+        <div class="sphere"></div>
+        <div class="sphere"></div>
+    </div>
+    <nav class="navbar">
+        <div class="logo-container" href="#">
+            <img src="../assets/logo.png" alt="Logo" class="logo" >
+        </div>
+        <!-- <h2 class="logo" src="../New folder (2)/assets/2.png">MyWebsite</h2> -->
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../pages/about.html">About</a></li>
+            <li><a href="../pages/skill.html">Skills</a></li>
+            <li><a href="../pages/project.html">Projects</a></li>
+            <li><a href="../pages/">Contact</a></li>
+        </ul>
+        <button class="toggle-btn" onclick="toggleMenu()">☰</button>
+    </nav>
+
+    <div class="menu-overlay" id="menuOverlay">
+        <button class="close-btn" onclick="toggleMenu()">✖</button>
+        <ul class="menu">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../pages/about.html">About</a></li>
+            <li><a href="../pages/skill.html">Skills</a></li>
+            <li><a href="../pages/project.html">Projects</a></li>
+            <li><a href="../#">Contact</a></li>
+        </ul>
+    </div>
+     <!--  Home pages details -->
+     <div class="content-wrapper">
+          <main>
+            <!-- <input type="text" id="search-input" placeholder="Search projects..."> -->
+            <div id="button-section">
+              <button id="all-button" class="button">All</button>
+              <button id="personal-button" class="button">Personal</button>
+              <button id="professional-button" class="button">Professional</button>
+            </div>
+            <div id="projects-container"></div>
+          </main>
+
+
+    </div>
+     <!-- Footer -->
+     <footer class="footer">
+        <div class="social-media">
+            <a href="https://www.facebook.com/sanjitkumar.Sharma.7568" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.github.com/sanjitSharma544" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/sanjitkumar.Sharma" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.youtube.com/@sanjitsharma6405" target="_blank"><i class="fab fa-youtube"></i></a>
+        </div>
+        <p>&copy; <span id="year"></span> Sanjit Kumar Sharma | Designed with <span style="color: #f2023a;">&#10084;</span>
+        </p>
+    </footer>
+    <script>
+      function toggleMenu() {
+            const menuOverlay = document.getElementById("menuOverlay");
+            const contentWrapper = document.querySelector('.content-wrapper');
+            document.body.classList.toggle('menu-open');
+            menuOverlay.classList.toggle("active");
+        }
+
+// Update Footer Year
+const currentYear = new Date().getFullYear();
+        document.getElementById("year").textContent = currentYear;
+       
+// Fetch GitHub Repositories
+document.addEventListener('DOMContentLoaded', () => {
+    const username = 'sanjitsharma544';
+    const accessToken = ''; // Replace with your GitHub Access Token
+    const projectsContainer = document.getElementById('projects-container');
+    const searchInput = document.getElementById('search-input');
+    let repos = [];
+
+    // Headers with access token
+    const headers = {
+        Authorization: `token ${accessToken}`
+    };
+
+    // Fetch repositories from GitHub with authentication headers
+    fetch(`https://api.github.com/users/${username}/repos`, { headers })
+        .then(response => response.json())
+        .then(data => {
+            repos = data;
+            displayProjects(repos);
+        })
+        .catch(error => console.error('Error fetching repositories:', error));
+
+    // Search functionality
+    // searchInput.addEventListener('input', () => {
+    //     const searchTerm = searchInput.value.toLowerCase();
+    //     const filteredRepos = repos.filter(repo => 
+    //         repo.name.toLowerCase().includes(searchTerm) || 
+    //         (repo.topics && repo.topics.join(', ').toLowerCase().includes(searchTerm))
+    //     );
+    //     displayProjects(filteredRepos);
+    // });
+
+    // Button filters
+    document.getElementById('all-button').addEventListener('click', () => displayProjects(repos));
+    document.getElementById('personal-button').addEventListener('click', () => {
+        // Note: GitHub's API returns "private" for private repos only if you have permission to see them.
+        const personalRepos = repos.filter(repo => repo.visibility === 'private');
+        displayProjects(personalRepos);
+    });
+    document.getElementById('professional-button').addEventListener('click', () => {
+        const professionalRepos = repos.filter(repo => repo.visibility === 'public');
+        displayProjects(professionalRepos);
+    });
+
+    function displayProjects(repos) {
+        projectsContainer.innerHTML = '';
+        repos.forEach(repo => {
+            const projectCard = document.createElement('div');
+            projectCard.className = 'project-card';
+
+            // Create project elements
+            const projectName = document.createElement('h2');
+            projectName.textContent = repo.name;
+
+            const projectDescription = document.createElement('div');
+            projectDescription.className = 'project-description';
+            projectDescription.textContent = repo.description || 'No description available.';
+
+            const projectTopics = document.createElement('div');
+            projectTopics.className = 'project-topics';
+            projectTopics.textContent = repo.topics?.length ? 'Topics: ' + repo.topics.join(', ') : '';
+
+            const lastUpdated = document.createElement('p');
+            const updatedDate = new Date(repo.updated_at);
+            lastUpdated.textContent = `Updated: ${updatedDate.toLocaleDateString()}`;
+
+            // Create links container
+            const linksContainer = document.createElement('div');
+            linksContainer.className = 'project-links';
+
+            // View Code link
+            const codeLink = document.createElement('a');
+            codeLink.className = 'project-link';
+            codeLink.href = repo.html_url;
+            codeLink.target = '_blank';
+            codeLink.textContent = 'View Code';
+
+            // Live Demo link
+            const liveLink = document.createElement('a');
+            liveLink.className = 'project-link';
+            liveLink.href = repo.homepage || '#';
+            liveLink.target = '_blank';
+            liveLink.textContent = repo.homepage ? 'Live Demo' : 'Preview';
+            liveLink.style.backgroundColor = repo.homepage ? '#28a745' : '#6c757d';
+
+            // Download link
+            const downloadLink = document.createElement('a');
+            downloadLink.className = 'project-link';
+            downloadLink.href = `https://github.com/${repo.owner.login}/${repo.name}/archive/refs/heads/${repo.default_branch}.zip`;
+            downloadLink.download = true;
+            downloadLink.textContent = 'Download';
+            downloadLink.style.backgroundColor = '#ffa500';
+
+            // Languages container
+            const languagesContainer = document.createElement('div');
+            languagesContainer.className = 'project-languages';
+
+            // Fetch languages for the repo using access token in the header as well
+            fetch(repo.languages_url, { headers })
+                .then(response => response.json())
+                .then(languages => {
+                    languagesContainer.innerHTML = Object.keys(languages)
+                        .map(lang => `<span class="language-badge">${lang}</span>`)
+                        .join('');
+                })
+                .catch(error => console.error('Error fetching languages:', error));
+
+            // Assemble elements
+            linksContainer.append(codeLink, liveLink, downloadLink);
+            projectCard.append(
+                projectName,
+                languagesContainer,
+                projectDescription,
+                projectTopics,
+                lastUpdated,
+                linksContainer
+            );
+
+            projectsContainer.appendChild(projectCard);
+        });
+    }
+});
+
+    </script>
+</body>
+
+</html>
