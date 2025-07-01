@@ -774,17 +774,23 @@
         </div>
         <!-- <h2 class="logo" src="../New folder (2)/assets/2.png">MyWebsite</h2> -->
         <ul class="nav-links">
-            <li><a href="../index.html" onclick="loadPage('home')">Home</a></li>
-            <li><a href="../pages/about.html" onclick="loadPage('pages/about.html')">About</a></li>
-            <li><a href="../pages/skill.html" onclick="loadPage('pages/skills.html')">Skills</a></li>
-            <li><a href="../pages/project.html" onclick="loadPage('pages/project.html')">Projects</a></li>
-            <li><a href="../pages/contact.html"onclick="loadPage('pages/contact.html')">Contact</a></li>
+           <li><a href="../index.html">Home</a></li>
+            <li><a href="../pages/about.html">About</a></li>
+            <li><a href="../pages/skill.html">Skills</a></li>
+            <li><a href="../pages/project.html">Projects</a></li>
+            <li><a href="../pages/contact.html">Contact</a></li>
         </ul>
-        <button class="toggle-btn" onclick="toggleMenu()">☰</button>
+      
+                 <button class="toggle-btn" onclick="toggleMenu()">☰</button>
+
     </nav>
 
     <div class="menu-overlay" id="menuOverlay">
-        <button class="close-btn" onclick="toggleMenu()">✖</button>
+        <button class="close-btn"
+        onclick="toggleMenu()"
+        
+        
+        >✖</button>
         <ul class="menu">
             <li><a href="../index.html">Home</a></li>
             <li><a href="../pages/about.html">About</a></li>
@@ -877,21 +883,19 @@
         <p>&copy; <span id="year"></span> Sanjit Kumar Sharma | Designed with <span style="color: #f2023a;">&#10084;</span>
         </p>
     </footer>
-     <script src="../script.js" type="module">
+
+     <script >
   
-        function toggleMenu() {
+     function toggleMenu() {
             const menuOverlay = document.getElementById("menuOverlay");
             const contentWrapper = document.querySelector('.content-wrapper');
             document.body.classList.toggle('menu-open');
             menuOverlay.classList.toggle("active");
         }
 
-        // Update Footer Year
-        const currentYear = new Date().getFullYear();
-        document.getElementById("year").textContent = currentYear;
-
-
     </script>
+<script type="module" src="contact.js"></script>
+
 </body>
 
 </html>

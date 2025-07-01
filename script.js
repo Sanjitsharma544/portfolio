@@ -1,8 +1,9 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-analytics.js";
-import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-database.js";
-
+ 
+ console.log("contact page script loaded");
+ 
+ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics.js";
+import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js";
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyBRJM8d_WzCfjwHRCa34XA0AKa8ue8Wv0Q",
@@ -15,11 +16,14 @@ const firebaseConfig = {
   databaseURL: "https://portfolio-68be4-default-rtdb.firebaseio.com"
 };
 
+console.log("script fie is loadied ")
+
 // Initialize Firebaseñ
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);  
 const database = getDatabase(app);
 
+console.log("fire base ",database)
 // Validation functions
 function isValidEmail(email) {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -52,6 +56,7 @@ function submitForm(e) {
   // Reference to Firebase database
   const dbRef = ref(database, "phone");
 
+
   // Data format
   const formData = {
     name: name,
@@ -60,7 +65,7 @@ function submitForm(e) {
     message: message,
     timestamp: Date.now()
   };
-
+console.log("fornk ata ssaend ", formData);
   // Push data to Firebase
   push(dbRef, formData)
     .then(() => {
@@ -76,26 +81,51 @@ function submitForm(e) {
 }
 
 // Optional: Telegram notification (remove if not needed)
-function sendTelegramNotification(formData) {
-  const TELEGRAM_BOT_TOKEN = 'YOUR_BOT_TOKEN';
-  const TELEGRAM_CHAT_ID = 'YOUR_CHAT_ID';
-  const text = `New Form Submission:\nName: ${formData.name}\nPhone: ${formData.phone}\nEmail: ${formData.email}\nMessage: ${formData.message}`;
-  
-  fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      chat_id: TELEGRAM_CHAT_ID,
-      text: text
+  function sendTelegramNotification(formData) {
+    const TELEGRAM_BOT_TOKEN = 'YOUR_BOT_TOKEN';
+    const TELEGRAM_CHAT_ID = 'YOUR_CHAT_ID';
+    const text = `New Form Submission:\nName: ${formData.name}\nPhone: ${formData.phone}\nEmail: ${formData.email}\nMessage: ${formData.message}`;
+    
+    fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        chat_id: TELEGRAM_CHAT_ID,
+        text: text
+      })
     })
-  })
-  .then(response => response.json())
-  .then(data => console.log('Telegram response:', data))
-  .catch(error => console.error('Error sending Telegram notification:', error));
-}
+    .then(response => response.json())
+    .then(data => console.log('Telegram response:', data))
+    .catch(error => console.error('Error sending Telegram notification:', error));
+  }
+
+// // self call bishal adhkari 
+// sendTelegramNotification({
+//   name: "sanjit",
+//   phone: phone,  
+//   email: email,
+//   message: message,
+//   timestamp: Date.now()
+// });
 
 // Menu toggle function
 function toggleMenu() {
   const menuOverlay = document.getElementById("menuOverlay");
   menuOverlay.classList.toggle("active");
 }
+
+function toggleMenu() {
+            console.log("conatct page togg;e wprlim ")
+            const menuOverlay = document.getElementById("menuOverlay");
+            const contentWrapper = document.querySelector('.content-wrapper');
+            document.body.classList.toggle('menu-open');
+            menuOverlay.classList.toggle("active");
+        }
+
+        // Update Footer Year
+        const currentYear = new Date().getFullYear();
+        document.getElementById("year").textContent = currentYear;
+
+
+        
+       
